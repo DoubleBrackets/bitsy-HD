@@ -232,8 +232,15 @@ function makeBlipTool() {
 			map = (map != undefined) ? map : bitsy.MAP1;
 			var tileId = tool.world.names.tile[tileName];
 			var tile = tool.world.tile[tileId];
-			var frame = tool.renderer.GetDrawingFrame(tile, 0);
-			setTile(map, x, y, frame);
+
+			// Temporary until blip tiles in blip.bitsy can be converted to 16x16
+			if(!tile) {
+				console.log("missing blip tile: " + tileName);
+			}
+			else {
+				var frame = tool.renderer.GetDrawingFrame(tile, 0);
+				setTile(map, x, y, frame);
+			}
 		}
 
 		// also copied from tune tool
