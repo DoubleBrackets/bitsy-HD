@@ -1,5 +1,11 @@
 # bitsy
 
+This is a scuffed mod of Bitsy to double the tile and sprite size.
+
+The mod is almost entirely based on https://github.com/Level0gamedev/bitsy_X2, but ported into Bitsy 8. 
+
+Many thanks to @Level0gamedev for the original mod!
+
 ~ a little engine for little games, worlds, and stories ~
 
 ## make a game with bitsy
