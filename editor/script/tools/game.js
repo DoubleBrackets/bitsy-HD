@@ -163,7 +163,7 @@ function makeGameTool() {
 				value: serializeWorld(!showFontDataInGameData),
 				onchange: function(e) {
 					var gamedataChanged = e.target.value;
-					Store.set("game_data", gamedataChanged);
+					Store.set("bitsy_x2_game_data", gamedataChanged);
 
 					// TODO : is there a better way to handle the global editor update?
 					on_game_data_change();
@@ -190,7 +190,7 @@ function makeGameTool() {
 			resetGameData();
 
 			var gamedataImported = exporter.importGame(fileText);
-			Store.set("game_data", gamedataImported);
+			Store.set("bitsy_x2_game_data", gamedataImported);
 
 			// TODO : is there a better way to handle the global editor update?
 			on_game_data_change();
@@ -206,7 +206,7 @@ function makeGameTool() {
 			resetGameData();
 
 			var gamedataImported = fileText;
-			Store.set("game_data", gamedataImported);
+			Store.set("bitsy_x2_game_data", gamedataImported);
 
 			on_game_data_change();
 		}

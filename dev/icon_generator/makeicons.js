@@ -23,7 +23,7 @@ function bitsyLog(str) {
 var bitsy = {
 	log: bitsyLog,
 	MAP_SIZE: 16,
-	TILE_SIZE: 8,
+	TILE_SIZE: 16,
 };
 var scriptUtils = {
 	ReadDialogScript(_, index){

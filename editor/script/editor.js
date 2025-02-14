@@ -191,14 +191,22 @@ function makeDrawing(type, id, imageData) {
 		// if there's no image data, initialize with one empty frame
 		imageData = [
 			[
-				[0,0,0,0,0,0,0,0],
-				[0,0,0,0,0,0,0,0],
-				[0,0,0,0,0,0,0,0],
-				[0,0,0,0,0,0,0,0],
-				[0,0,0,0,0,0,0,0],
-				[0,0,0,0,0,0,0,0],
-				[0,0,0,0,0,0,0,0],
-				[0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 			],
 		];
 	}
@@ -534,13 +542,13 @@ function getCurDialogId() {
 function setDefaultGameState() {
 	// initialize game with default data
 	var defaultData = Resources["defaultGameData.bitsy"];
-	Store.set("game_data", defaultData);
+	Store.set("bitsy_x2_game_data", defaultData);
 
 	// reset game state
 	clearGameData();
 
 	// load the game
-	var gamedataStorage = Store.get("game_data");
+	var gamedataStorage = Store.get("bitsy_x2_game_data");
 	loadWorldFromGameData(gamedataStorage); // load game
 
 	// refresh images
@@ -555,7 +563,7 @@ function refreshGameData() {
 	flags.ROOM_FORMAT = 1; // always save out comma separated format, even if the old format is read in
 
 	var gameDataNoFonts = serializeWorld(true);
-	Store.set("game_data", gameDataNoFonts);
+	Store.set("bitsy_x2_game_data", gameDataNoFonts);
 
 	// make sure to update the game tool!
 	// this ensures the game data text is up-to-date
@@ -806,7 +814,7 @@ function start() {
 	}
 
 	//load last auto-save
-	var gamedataStorage = Store.get("game_data");
+	var gamedataStorage = Store.get("bitsy_x2_game_data");
 	if (gamedataStorage) {
 		on_game_data_change_core();
 	}
@@ -1417,7 +1425,7 @@ function on_edit_mode() {
 	quitGame();
 
 	// reparse world to reset any changes from gameplay
-	var gamedataStorage = Store.get("game_data");
+	var gamedataStorage = Store.get("bitsy_x2_game_data");
 	loadWorldFromGameData(gamedataStorage);
 	
 	// clear render cache
@@ -1733,7 +1741,7 @@ function on_game_data_change() {
 }
 
 function on_game_data_change_core() {
-	var gamedataStorage = Store.get("game_data");
+	var gamedataStorage = Store.get("bitsy_x2_game_data");
 	bitsyLog(gamedataStorage, "editor");
 
 	clearGameData();
